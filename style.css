@@ -1,0 +1,1161 @@
+/* Universal Styles */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: -apple-system, sans-serif ; /* Consider a more widely supported font stack like 'Arial, sans-serif' for broader compatibility */
+}
+
+/* Root Variables for Colors */
+:root {
+    --bg-color: #fff; /* White background */
+    --snd-bg-color: #d5fdf9; /* Light teal/cyan secondary background */
+    --text-color: #000; /* Black text */
+    --main-color: #007f73; /* Dark teal/cyan main accent color */
+}
+
+/* Base HTML Styling */
+html {
+    font-size: 62.5%; /* 1rem = 10px, for easier calculations */
+    overflow-x: hidden; /* Prevents horizontal scrollbar */
+}
+
+/* Body Styling */
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Section Styling */
+section {
+    min-height: 100vh; /* Full viewport height for sections */
+    padding: 10rem 9% 2rem; /* Top/bottom padding and horizontal padding */
+}
+
+/* Header Styling */
+.header {
+    position: fixed; /* Fixed at the top */
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000; /* Ensures it's above other content */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 5%;
+    background: var(--main-color); /* Main accent color background */
+    backdrop-filter: blur(10px); /* Blurry effect */
+    transition: all 0.5s ease; /* Smooth transitions for changes */
+}
+
+/* Logo Styling */
+.logo {
+    font-size: 3rem;
+    color: var(--bg-color); /* White text for logo */
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Navbar (Navigation Links) Styling */
+.navbar a{
+    font-size: 1.9rem;
+    color: var(--bg-color); /* White links */
+    margin-left: 4rem;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--text-color); /* Changes to black on hover/active */
+}
+
+/* Menu Icon Styling (for mobile) */
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--bg-color);
+    cursor: pointer;
+    display: none; /* Hidden by default, shown on mobile */
+}
+
+/* Home Section Styling */
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Home Image Styling */
+/* --- Adjustments for the Home Section Profile Image --- */
+
+.home-img img {
+    /* Add these two lines to control the size */
+    width: 35vw; /* Adjust this value as needed. 35vw means 35% of viewport width */
+    height: 35vw; /* Keep height same as width to maintain circular shape */
+    max-width: 300px; /* Optional: Set a maximum size so it doesn't get too big on very large screens */
+    max-height: 300px; /* Optional: Set a maximum size */
+
+    border-radius: 50%; /* Circular image */
+    box-shadow: 0 0 25px var(--main-color); /* Glow effect */
+    cursor: pointer;
+    animation: floatImage 4s ease-in-out infinite; /* Floating animation */
+    transition: 0.4s ease;
+    object-fit: cover; /* Ensures the image covers the area without distortion, cropping if necessary */
+    border: 5px solid var(--main-color); /* Adds a subtle border that matches the glow */
+}
+
+.home-img img:hover {
+    box-shadow: 0 0 25px var(--main-color),
+                0 0 35px var(--main-color),
+                0 0 45px var(--main-color); /* Enhanced glow on hover */
+}
+
+/* --- Responsive adjustments for smaller screens --- */
+@media (max-width: 768px) {
+    .home-img img {
+        width: 50vw; /* Make it larger relative to viewport on smaller screens */
+        height: 50vw;
+        max-width: 250px; /* Adjust max size for medium screens */
+        max-height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-img img {
+        width: 60vw; /* Even larger relative to viewport on very small screens */
+        height: 60vw;
+        max-width: 200px; /* Adjust max size for small screens */
+        max-height: 200px;
+    }
+}
+/* Floating Image Animation */
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-2.4rem);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+/* Home Content Styling */
+.home-content {
+    margin-left: 5rem;
+}
+
+.home-content h3 {
+    font-size: 3.7rem;
+    font-weight: 700;
+}
+
+.home-content h3:nth-last-of-type(2){
+    margin-bottom: 2rem;
+}
+
+/* Span for accent color */
+span {
+    color: var(--main-color);
+}
+
+.home-content h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.home-content p {
+    font-size: 1.6rem;
+}
+
+.Paragraph { /* Specific style for About section paragraph */
+    margin-bottom: 2rem;
+}
+
+/* Social Media Icons Styling */
+.social-media a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    background: transparent;
+    border: 0.2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--main-color);
+    margin: 3rem 1.5rem 0; /* Top, horizontal, bottom margin */
+    margin-bottom: 1rem; /* Overrides previous bottom margin */
+    transition: 0.3s ease;
+}
+
+.social-media a:hover{
+    transform: scale(1.2) translateY(-10px); /* Enlarge and slight lift on hover */
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 25px var(--main-color);
+}
+
+/* Button Styling */
+.btn{
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);
+    border-radius: 4rem;
+    box-shadow: none;
+    font-size: 1.6rem;
+    color: var(--bg-color);
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: 0.3s ease;
+    margin-top: 3rem; /* Added this to space it from social icons */
+}
+
+.btn:hover{
+    box-shadow: 0 0 1.6rem var(--main-color);
+}
+
+/* About Section Styling */
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background: var(--snd-bg-color);
+}
+
+/* About Image Styling */
+.about-img img {
+    width: 25vw;
+    border: 2px solid var(--main-color);
+    border-radius: 50%;
+    box-shadow: 0 0 25px var(--main-color);
+    cursor: pointer;
+    transition: 0.4s ease;
+}
+
+.about-img img:hover{
+    box-shadow: 0 0 25px var(--main-color),
+                0 0 35px var(--main-color),
+                0 0 45px var(--main-color);
+}
+
+/* General Heading Styling */
+.heading{
+    font-size: 6rem;
+    text-align: center;
+}
+
+/* About Content Styling */
+.about-content {
+    padding: 0.4rem;
+}
+
+.about-content h2{
+    text-align: left;
+    line-height: 1.2;
+}
+
+.about-content h3{
+    font-size: 3rem;
+}
+.about-content p {
+    font-size: 1.6rem;
+    margin: 2rem 0 3rem;
+}
+
+/* Services Section Styling */
+.services h2{
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.services-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.services-container .services-box {
+    flex: 1 1 30rem; /* Flex item that grows/shrinks, with a base of 30rem */
+    background: var(--snd-bg-color);
+    padding: 6rem 2rem 6rem;
+    border-radius: 2rem;
+    text-align: center;
+    border: 0.3rem solid var(--bg-color);
+    transition: 0.3s;
+}
+
+.services-container .services-box:hover {
+    border-color: var(--main-color);
+    transform: scale(1.02);
+}
+
+.services-box i{
+    font-size: 7rem;
+    color: var(--main-color);
+}
+
+.services-box h3{
+    font-size: 2.6rem;
+}
+
+.services-box p{
+    font-size: 1.6rem;
+    margin: 1rem 0 3rem;
+}
+
+/* Projects Section Styling */
+.projects {
+    background: var(--bg-color);
+}
+
+.projects .heading {
+    margin-bottom: 5rem;
+}
+
+.projects-container {
+    display: grid; /* Makes the container a grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 3rem; /* Spacing between grid items */
+    justify-content: center;
+    align-items: stretch; /* Ensures boxes stretch to same height */
+}
+
+/* Crucial: Ensures hidden projects integrate into the grid when visible */
+#more-projects-content {
+    display: contents; /* Makes children participate directly in the parent grid layout */
+}
+
+
+.project-box {
+    background: var(--snd-bg-color);
+    border-radius: 1rem;
+    overflow: hidden; /* Ensures content doesn't spill out, good for images */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Stacks image and info vertically */
+}
+
+.project-box:hover {
+    transform: translateY(-10px); /* Lifts box on hover */
+    box-shadow: 0 0 35px rgba(0, 127, 115, 0.5); /* main-color with transparency for glow */
+}
+
+.project-box img {
+    width: 100%;
+    height: 200px; /* Fixed height for project images for consistency */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    border-bottom: 0.2rem solid var(--main-color);
+}
+
+.project-info {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows info section to expand and push links to bottom */
+}
+
+.project-info h4 {
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+    color: var(--main-color);
+}
+
+.project-info p {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Allows description to take available space */
+}
+
+.project-info .technologies {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap; /* Allows tags to wrap to next line */
+    gap: 0.8rem; /* Space between individual technology tags */
+    justify-content: center; /* Center align tags */
+}
+
+.project-info .technologies span {
+    background: var(--main-color);
+    color: var(--bg-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.project-links {
+    display: flex;
+    justify-content: space-around; /* Distributes links evenly */
+    gap: 1.5rem;
+    margin-top: auto; /* Pushes links to the bottom of the flex container */
+}
+
+.project-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.5rem;
+    background: var(--main-color);
+    color: var(--bg-color);
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.project-links a:hover {
+    background: var(--text-color); /* Darker on hover */
+    transform: translateY(-3px); /* Slight lift on hover */
+}
+
+.project-links a i {
+    margin-right: 0.8rem;
+    font-size: 1.8rem;
+}
+
+/* My Skills Section Styling */
+.skills {
+    background: var(--snd-bg-color); /* Use your secondary background color */
+    padding: 10rem 9% 2rem;
+    text-align: center;
+}
+
+.skills .heading {
+    margin-bottom: 5rem;
+    color: var(--text-color); /* Ensure heading color matches theme */
+}
+
+.skills-container {
+    display: flex; /* Use flexbox to arrange technical and professional skill groups side-by-side */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: center;
+    gap: 4rem; /* Space between the two main skill containers */
+    margin-top: 3rem;
+}
+
+.skills-container > div { /* Targeting the direct children div of .skills-container */
+    flex: 1 1 45%; /* Allow them to take roughly half width, wrapping if needed */
+    max-width: 550px; /* Max width for each skill group to prevent overstretching */
+    padding: 2rem;
+    background: var(--bg-color); /* White background for skill boxes */
+    border-radius: 1.5rem;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+    border: 0.2rem solid var(--main-color); /* Subtle border */
+}
+
+/* --- Technical Skills (Linear Progress Bars) - REFINED DESIGN --- */
+
+/* The main container for the bars themselves within .technical-skills-group */
+.technical-skills-group .bar-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly wider bars for better presentation */
+    gap: 2.5rem; /* Space between individual skill bars */
+    padding: 1rem;
+    max-width: 100%; /* Ensure it fits within its parent container */
+    margin: 0 auto; /* Center the grid within its container */
+}
+
+/* Individual skill bar card styling */
+.technical-skills-group .bar {
+    background: var(--bg-color); /* Uses your white background for the card */
+    border-radius: 1.5rem; /* More rounded corners for a softer look */
+    padding: 2.5rem; /* Generous padding inside each skill card */
+    text-align: left;
+    transition: all 0.4s ease; /* Smooth transition for hover effects */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08); /* Soft, subtle shadow */
+    border: 0.1rem solid rgba(0, 127, 115, 0.2); /* Very subtle border using a transparent main color */
+    display: flex; /* Use flexbox for internal layout (icon, info, progress bar) */
+    flex-direction: column; /* Stack items vertically */
+    justify-content: space-between; /* Distribute space between elements */
+    height: 100%; /* Ensures all bars in a row have the same height in a grid layout */
+}
+
+.technical-skills-group .bar:hover {
+    transform: translateY(-8px); /* Lifts the card slightly on hover */
+    box-shadow: 0 10px 25px rgba(0, 127, 115, 0.3); /* Stronger, more prominent shadow on hover */
+    border-color: var(--main-color); /* Highlights the border with the main accent color on hover */
+}
+
+/* Styling for the skill icons */
+.technical-skills-group .bar i {
+    font-size: 4rem; /* Larger icon size */
+    color: var(--main-color); /* Icon color matches your main accent color */
+    margin-bottom: 1.5rem; /* Space below the icon */
+    display: block; /* Ensures icon is on its own line */
+    text-align: center; /* Centers the icon within its bar card */
+}
+
+/* Styling for the info div (skill name and percentage) */
+.technical-skills-group .bar .info {
+    display: flex;
+    justify-content: space-between; /* Pushes the skill name to one side and percentage to the other */
+    align-items: center; /* Vertically aligns text and percentage */
+    margin-bottom: 1.5rem; /* Space between the info line and the progress bar */
+}
+
+/* Styling for the skill name text */
+.technical-skills-group .bar .info span {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-color); /* Skill name text color */
+}
+
+/* Styling for the percentage text */
+.technical-skills-group .bar .info .percentage-text {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--main-color); /* Percentage text highlighted with your main accent color */
+}
+
+/* Styling for the progress bar track */
+.technical-skills-group .progress-line {
+    position: relative;
+    height: 1.2rem; /* Slightly thicker progress line */
+    width: 100%;
+    background: var(--snd-bg-color); /* Uses your secondary background color for the track */
+    border-radius: 1rem; /* Rounded ends for the progress track */
+    transform: scaleX(0); /* Initially hidden for animation */
+    transform-origin: left; /* Animation originates from the left */
+    animation: animateProgressLine 1s cubic-bezier(1, 0, 0.5, 1) forwards; /* Animation for the background line */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); /* Inner shadow for a slight sunken effect */
+}
+
+/* Styling for the actual progress fill */
+.technical-skills-group .progress-line span {
+    position: absolute;
+    height: 100%;
+    border-radius: 1rem; /* Rounded ends for the fill */
+    background: var(--main-color); /* Main accent color for the progress fill */
+    transform: scaleX(0); /* Initially hidden for animation */
+    transform-origin: left; /* Animation originates from the left */
+    animation: animateSkillFill 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards; /* Animation for the fill, with a 1s delay */
+}
+
+/* Add this to your style.css, preferably near where you style .technical-skills-group .bar i */
+.technical-skills-group .bar .skill-icon {
+    width: 4rem; /* Match the font-size of the icons */
+    height: 4rem; /* Match the font-size of the icons */
+    color: var(--main-color); /* This won't directly color an image, but it's good practice */
+    margin-bottom: 1.5rem;
+    display: block;
+    text-align: center; /* This centers the block element */
+    margin-left: auto; /* Used with margin-right: auto for centering block elements */
+    margin-right: auto;
+    filter: brightness(0) saturate(100%) invert(35%) sepia(87%) saturate(518%) hue-rotate(139deg) brightness(97%) contrast(101%); /* This is an attempt to recolor the black icon to your main-color. May need adjustment. */
+}
+
+/* Ensure the .bar i styling still targets only the i tags */
+.technical-skills-group .bar i {
+    font-size: 4rem;
+    color: var(--main-color);
+    margin-bottom: 1.5rem;
+    display: block;
+    text-align: center;
+}
+/* Individual Skill Progress Percentages (set the width for each skill's progress fill) */
+/* IMPORTANT: These class names must exactly match the ones in your HTML.
+   If your HTML uses 'UX/UI Design', remember to escape it as 'UX\/UI\ Design' in CSS.
+   The HTML I provided used 'UX-UI-Design' for simpler CSS. Adjust as needed. */
+.progress-line.html span { width: 90%; }
+.progress-line.css span { width: 85%; }
+.progress-line.JavaScript span { width: 75%; }
+.progress-line.Python span { width: 90%; }
+.progress-line.Kotlin span { width: 80%; }
+.progress-line.Java span { width: 70%; }
+.progress-line.UX-UI-Design span { width: 88%; } /* Example for a class with hyphens */
+.progress-line.C-Sharp-ASP-NET-CORE span { width: 82%; } /* Example for a class with hyphens */
+.progress-line.SQL span { width: 95%; }
+.progress-line.PHP span { width: 65%; }
+.progress-line.Streamlit span { width: 80%; }
+.progress-line.Linux-Kali span { width: 78%; } /* Example for a class with hyphens */
+
+
+/* --- Responsive Adjustments for Technical Skills --- */
+@media (max-width: 991px) {
+    .technical-skills-group .bar-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Slightly smaller min-width for columns on tablets */
+        gap: 2rem; /* Reduced gap */
+    }
+    .technical-skills-group .bar {
+        padding: 2rem; /* Slightly less padding on smaller screens */
+    }
+    .technical-skills-group .bar i {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+    }
+    .technical-skills-group .bar .info span {
+        font-size: 1.6rem;
+    }
+    .technical-skills-group .bar .info .percentage-text {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 617px) {
+    .technical-skills-group .bar-container {
+        grid-template-columns: 1fr; /* Stack bars vertically on very small mobile screens */
+        gap: 1.5rem;
+    }
+    .technical-skills-group .bar {
+        padding: 1.8rem;
+    }
+    .technical-skills-group .bar i {
+        font-size: 3rem;
+    }
+    .technical-skills-group .bar .info span {
+        font-size: 1.5rem;
+    }
+    .technical-skills-group .bar .info .percentage-text {
+        font-size: 1.3rem;
+    }
+}
+/* Sub-heading for skill categories */
+.heading1 {
+    font-size: 3.5rem;
+    margin-bottom: 3rem;
+    color: var(--main-color);
+    text-align: center;
+}
+
+/* --- Technical Skills (Linear Progress Bars) --- */
+.skills-container .bar-container { /* Renamed the inner skills-container to avoid conflict */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid for bars */
+    gap: 2.5rem; /* Space between bars */
+    padding: 1rem;
+}
+
+.skills-container .bar {
+    background: var(--snd-bg-color);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: left;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Inner shadow for depth */
+}
+
+.skills-container .bar:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 127, 115, 0.2); /* main-color shadow */
+}
+
+.skills-container .bar i {
+    font-size: 3rem;
+    color: var(--main-color);
+    margin-bottom: 1rem;
+    display: block; /* Ensures icon is on its own line */
+}
+
+.skills-container .bar .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.skills-container .bar .info span {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.skills-container .progress-line {
+    position: relative;
+    height: 1rem;
+    width: 100%;
+    background: #e0e0e0; /* Light grey background for the progress track */
+    border-radius: 1rem;
+    transform: scaleX(0); /* Start hidden for animation */
+    transform-origin: left;
+    animation: animateProgressLine 1s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+@keyframes animateProgressLine {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+.skills-container .progress-line span {
+    position: absolute;
+    height: 100%;
+    border-radius: 1rem;
+    background: var(--main-color);
+    transform: scaleX(0); /* Start hidden for individual skill animation */
+    transform-origin: left;
+    animation: animateSkillFill 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards; /* 1s delay */
+}
+
+/* Individual Skill Progress Percentages (adjust width for each skill) */
+.progress-line.html span { width: 90%; }
+.progress-line.css span { width: 85%; }
+.progress-line.JavaScript span { width: 75%; }
+.progress-line.Python span { width: 90%; }
+.progress-line.Kotlin span { width: 80%; }
+.progress-line.Java span { width: 70%; }
+.progress-line.UX\/UI\ Design span { width: 88%; } /* Escaped / for CSS class name */
+.progress-line.C\#\(ASP\.NET\ CORE\) span { width: 82%; } /* Escaped # and () */
+.progress-line.SQL span { width: 95%; }
+.progress-line.PHP span { width: 65%; }
+.progress-line.Streamlit span { width: 80%; }
+.progress-line.Linux\(kali\) span { width: 78%; } /* Escaped () */
+
+
+@keyframes animateSkillFill {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+
+/* --- Professional Skills (Radial Progress Bars) --- */
+.radial-bars-container { /* Added a wrapper for radial bars for better layout control */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem; /* Spacing between radial bars */
+    padding: 1rem;
+}
+
+.radial-bars {
+    width: 150px; /* Size of each radial bar container */
+    height: 150px;
+    background: var(--snd-bg-color);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.radial-bars:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 127, 115, 0.3);
+}
+
+.radial-bars svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.radial-bars svg circle {
+    fill: none;
+    stroke-width: 10; /* Thickness of the progress line */
+    stroke: #e0e0e0; /* Background color of the circle track */
+    transform: translate(5px, 5px); /* Adjust to center the circle within SVG viewBox */
+    stroke-dasharray: 502; /* 2 * PI * R (2 * 3.14159 * 80 = 502.65) */
+    stroke-dashoffset: 502; /* Initially hide the stroke */
+    stroke-linecap: round;
+}
+
+/* The actual progress fill for radial bars */
+.radial-bars svg .progress-line { /* Reusing .progress-line class, but for SVG */
+    stroke: var(--main-color); /* Main color for the progress */
+    animation: animateRadialProgress 1s linear forwards;
+    animation-delay: 1s; /* Delay animation to start after section loads */
+}
+
+/* Keyframes for radial progress animation */
+@keyframes animateRadialProgress {
+    0% {
+        stroke-dashoffset: 502;
+    }
+    to {
+        stroke-dashoffset: var(--dash-offset); /* Will be set by JS */
+    }
+}
+
+.radial-bars .percentage {
+    position: absolute;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    z-index: 1; /* Ensure percentage is above SVG */
+}
+
+.radial-bars .text {
+    position: absolute;
+    bottom: 15px; /* Adjust position as needed */
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* Responsive Design for Skills Section */
+@media (max-width: 991px) {
+    .skills-container {
+        flex-direction: column; /* Stack skill groups vertically */
+        gap: 3rem;
+    }
+    .skills-container > div {
+        flex: 1 1 100%; /* Take full width */
+        max-width: 100%; /* Remove max-width constraint */
+    }
+    .skills-container .bar-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust min-width for smaller screens */
+        gap: 2rem;
+    }
+    .radial-bars-container {
+        gap: 2rem;
+    }
+    .radial-bars {
+        width: 120px; /* Smaller radial bars on smaller screens */
+        height: 120px;
+    }
+    .radial-bars svg circle {
+        stroke-width: 8; /* Thinner stroke */
+    }
+    .radial-bars .percentage {
+        font-size: 2rem;
+    }
+    .radial-bars .text {
+        font-size: 1.3rem;
+        bottom: 10px;
+    }
+}
+
+@media (max-width: 617px) {
+    .heading1 {
+        font-size: 3rem;
+    }
+    .skills-container .bar .info span {
+        font-size: 1.6rem;
+    }
+    .skills-container .bar i {
+        font-size: 2.5rem;
+    }
+    .radial-bars {
+        width: 100px; /* Even smaller radial bars */
+        height: 100px;
+    }
+    .radial-bars svg circle {
+        stroke-width: 6;
+    }
+    .radial-bars .percentage {
+        font-size: 1.8rem;
+    }
+    .radial-bars .text {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* Testimonial Section Styling */
+.testimonial {
+    background: var(--snd-bg-color);
+}
+
+.testimonial-box {
+    /* background-size: cover; -- This line is not needed here, it would apply to the box itself */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.testimonial .heading{
+    margin-bottom: 5rem;
+}
+
+.testimonial-box img{
+    width: 15rem;
+    border-radius: 50%;
+    border: 3px solid var(--main-color);
+    box-shadow: 0 0 25px var(--bg-color);
+}
+
+.wrapper{ /* This acts as the grid container for testimonial items */
+    display: grid;
+    grid-template-columns: repeat(3,1fr); /* 3 equal columns */
+    gap: 3rem;
+    justify-content: center; /* Center testimonials if they don't fill the row */
+    padding: 0 2rem; /* Add some padding to the wrapper */
+}
+
+.testimonial-item {
+    min-height: 450px;
+    max-width: 450px; /* Constrain max width for individual items */
+    background: var(--bg-color);
+    border: 0.3rem solid var(--bg-color);
+    border-radius: 2rem;
+    margin: 0 2rem; /* Consider removing this margin if grid gap handles spacing */
+    padding: 20px 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    color: var(--text-color);
+    transition: 0.3s ease;
+}
+
+.testimonial-item:hover{
+    border-color: var(--main-color);
+    transform: scale(1.02);
+}
+
+.testimonial-item h2{
+    font-size: 3rem;
+}
+
+.testimonial-item p {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+#star{
+    color: gold;
+    font-size: 2rem;
+}
+
+/* Contact Section Styling */
+.contact {
+    background: var(--bg-color);
+}
+
+.contact h2{
+    margin-bottom: 3rem;
+    color: var(--main-color);
+}
+
+.contact form{
+    max-width: 80rem;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact form .input-box {
+    display: flex; /* Makes inputs in a row */
+    justify-content: space-between; /* Spaces them out */
+    flex-wrap: wrap; /* Allows them to wrap on smaller screens */
+}
+
+.contact form .input-box input,
+.contact form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: var(--bg-color);
+    border-radius: 0.8rem;
+    border: 0.25rem solid var(--main-color);
+    margin: 0.7rem 0; /* Vertical margin for all form elements */
+    resize: none;
+}
+
+.contact form .input-box input{
+    width: 48%; /* Each input takes almost half width */
+    /* Removed the 0.35rem side margin to let flexbox handle gap better.
+       If you want a small gap between them, use 'gap' on .input-box or adjust width slightly. */
+    margin: 0.7rem 0; /* Keep vertical margin consistent */
+}
+
+.contact form .input-box input:last-child {
+    margin-right: 0; /* Remove right margin for the last input in a row */
+}
+
+
+.contact form .btn{
+    margin-top: 2rem;
+}
+
+/* Footer Styling */
+.footer {
+    position: relative; /* Changed from fixed to relative to avoid overlap issues */
+    bottom: 0;
+    width: 100%;
+    padding: 40px 0;
+    background-color: var(--snd-bg-color);
+}
+
+.footer .social {
+    text-align: center;
+    padding-bottom: 25px;
+    color: var(--main-color);
+}
+
+.footer .social a{
+    font-size: 25px;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    width: 42px;
+    height: 42px;
+    line-height: 42px; /* Centers icon vertically */
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: 0.3s ease;
+}
+
+.footer .social a:hover{
+    transform: scale(1.2) translateY(-10px);
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 25px var(--main-color);
+}
+
+.footer .copyright{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+/* Responsive Design Code (Media Queries) */
+
+@media (max-width: 1200px){
+    html{
+        font-size: 55%; /* Slightly smaller base font size */
+    }
+}
+
+@media (max-width: 991px) {
+    .header{
+        padding: 2rem 3%; /* Reduced header padding */
+    }
+    section {
+        padding: 10rem 3%; /* Reduced section padding */
+    }
+    .services {
+        padding: 7rem 3%; /* Adjusted for services section specifically */
+    }
+    .testimonial .wrapper {
+        grid-template-columns: repeat(1,1fr); /* Testimonials stack in a single column */
+    }
+    .contact form .input-box input {
+        width: 100%; /* Contact form inputs stack vertically */
+        margin: 0.7rem 0; /* Ensure correct margins */
+    }
+    .footer{
+        padding: 2rem 3%;
+    }
+    /* Menu icon visibility for mobile */
+    #menu-icon{
+        display: block; /* Changed from flex to block for general visibility */
+    }
+    .navbar{
+        position: absolute;
+        top: 100%;
+        right: -100%; /* Off-screen by default */
+        width: 255px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background: var(--main-color);
+        transition: all 0.5s ease;
+        backdrop-filter: blur(10px);
+    }
+
+    .navbar.active {
+        right: 0; /* Slides in from the right */
+        transition-delay: 0s;
+    }
+    .navbar a{
+        display: block;
+        padding: 17px;
+        font-size: 22px;
+    }
+    /* Home section changes for smaller screens */
+    .home{
+        flex-direction: column; /* Stacks content vertically */
+    }
+    .home-content h3{
+        font-size: 2.6rem;
+    }
+    .home-content h1{
+        font-size: 5rem;
+    }
+    .home-content{
+        order: 2; /* Moves content below image */
+        margin-left: 0; /* Reset margin */
+        text-align: center; /* Center text */
+    }
+    .home-img img{
+        width: 70vw;
+        margin-top: 4rem;
+    }
+    /* About section changes for smaller screens */
+    .about{
+        flex-direction: column-reverse; /* Stacks about content below image */
+    }
+    .about-img img{
+        width: 70vw;
+        margin-top: 4rem;
+    }
+    .about-content h2, .about-content h3 {
+        text-align: center; /* Center align about headings */
+    }
+    .services h2{
+        margin-bottom: 3rem;
+    }
+    /* Responsive adjustment for projects section */
+    .projects-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly smaller min-width */
+        gap: 2rem; /* Reduced gap */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Further adjustments for even smaller tablets/large phones */
+    .testimonial .wrapper {
+        gap: 2rem;
+    }
+    .testimonial-item {
+        margin: 0 1rem; /* Adjust margin for smaller screens */
+        padding: 15px;
+    }
+}
+
+@media (max-width: 617px){
+    /* Very small screens (most phones) */
+    html {
+        font-size: 45%; /* Smallest base font size */
+    }
+    .home-img img{
+        width: 80vw; /* Image takes more width */
+        margin-top: 8rem;
+    }
+    .about-img img{
+        width: 80vw;
+        margin-top: 4rem;
+    }
+    .home-content p, .about-content p, .services-box p, .project-info p, .testimonial-item p {
+        font-size: 1.4rem; /* Smaller paragraph text */
+    }
+    .projects-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Even smaller min-width */
+        gap: 1.5rem;
+    }
+    .testimonial .wrapper {
+        padding: 0 1rem;
+    }
+    .testimonial-item {
+        min-height: auto; /* Allow height to adjust based on content */
+    }
+}
